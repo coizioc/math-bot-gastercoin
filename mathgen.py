@@ -1,11 +1,11 @@
+"""Generates mathematics questions."""
 import math
 import random
 import string
 
 
 def add_term_to_question(coef, variable=None, there_is_preceeding_term=False, power=1):
-    # out = f"{coef} {variable} {there_is_preceeding_term} {power}"
-    # print(out)
+    """Converts values into a term in an equation."""
     term_as_string = ''
 
     if there_is_preceeding_term:
@@ -40,6 +40,7 @@ def add_term_to_question(coef, variable=None, there_is_preceeding_term=False, po
 
 
 def gen_arithmetic(simple=False):
+    """Generates arithmetic problems."""
     num1 = random.randint(1, 100)
     num2 = random.randint(1, 100)
 
@@ -62,6 +63,7 @@ def gen_arithmetic(simple=False):
 
 
 def gen_algebra(simple=True):
+    """Generates algebra problems."""
     if simple:
         while True:
             variable = random.choice(string.ascii_lowercase)
@@ -134,6 +136,7 @@ def gen_algebra(simple=True):
 
 
 def gen_geometry():
+    """Generates geometry problems."""
     shape = random.randint(0,2)
 
     if shape == 0:   # circle
@@ -145,7 +148,7 @@ def gen_geometry():
         else:
             return tuple((f'What is the circumference of a circle with radius {radius} expressed as units of pi?',
                           f'{radius * 2}pi'))
-    if shape == 1:   # square/rectangle/parallelagram
+    elif shape == 1:   # square/rectangle/parallelagram
         length = random.randint(1, 50)
         width = random.randint(1, 50)
         calcarea = random.randint(0, 1)
@@ -162,7 +165,7 @@ def gen_geometry():
         else:
             return tuple((f'What is the perimeter of a {name} with length {length} and width {width}?',
                           str(length * 2 + width * 2)))
-    if shape == 2:   # triangle
+    elif shape == 2:   # triangle
         base = random.randint(1, 25) * 2
         height = random.randint(1, 25) * 2
 
